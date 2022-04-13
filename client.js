@@ -5,11 +5,13 @@ const connect = function () {
         port: 50541
         })
     conn.on("connect", () => {
-        console.log('you ded cuz you idled')    
+        console.log("Successfully connected to game server" )   
+        conn.write('RJR'); 
         // code that does something when the connection is first established
           });
-        
-
+          conn.on('data', (data) => {
+            console.log('RJR', data)
+          });
 
     conn.setEncoding("utf-8");
 

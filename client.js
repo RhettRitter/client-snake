@@ -5,12 +5,15 @@ const connect = function () {
         port: 50541
         })
     conn.on("connect", () => {
-        console.log("Successfully connected to game server" )   
-        conn.write('RJR'); 
+        console.log("Successfully connected to game server" );   
+        conn.write('Name: RJR');
+        /*setInterval(()  => {
+            conn.write('Move: up')
+        }, 50);*/
         // code that does something when the connection is first established
           });
-          conn.on('data', (data) => {
-            console.log('RJR', data)
+        conn.on('data', (data) => {
+            console.log(data)
           });
 
     conn.setEncoding("utf-8");
@@ -18,4 +21,4 @@ const connect = function () {
     return conn;
 
 };
-module.exports = connect
+module.exports = connect;
